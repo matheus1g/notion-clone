@@ -35,7 +35,7 @@ const UserItem = () => {
             {user?.emailAddresses[0].emailAddress}
           </p>
           <div className="flex items-center gap-x-2">
-            <div className="roudend-md bg-secondary p-1">
+            <div className="roudend-md bg-secondary dark:bg-[#0a0a0a] p-1">
               <Avatar className="h-8 w-8">
                 <AvatarImage src={user?.imageUrl}/>
               </Avatar>
