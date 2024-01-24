@@ -20,7 +20,7 @@ interface ItemProps {
   level?: number
   onExpand?: () => void
   label: string
-  onClick: () => void
+  onClick?: () => void
   icon: LucideIcon
 };
 
@@ -156,6 +156,7 @@ const Item = ({
             align="start"
             side="right"
             forceMount
+            onClick={(e) => e.stopPropagation()}
           >
             <DropdownMenuItem onClick={onArchive}>
               <Trash className="h-4 w-4 mr-2"/>
