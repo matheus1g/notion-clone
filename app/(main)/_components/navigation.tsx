@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { ElementRef, useEffect, useRef, useState } from "react";
+import { ElementRef, use, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import UserItem from "./user-item";
 import { useMutation } from "convex/react";
@@ -13,8 +13,11 @@ import { toast } from "sonner";
 import DocumentList from "./document-list";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import TrashBox from "./trash-box";
+import { useSearch } from "@/hooks/use-search"
+
 
 const Navigation = () => {
+  const search = useSearch();
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px")
   const create = useMutation(api.documents.create)
@@ -135,7 +138,7 @@ const Navigation = () => {
             label="Search" 
             icon={Search}
             isSearch
-            onClick={() => {}} 
+            onClick={search.onOpen} 
           />
           <Item 
             label="Settings" 
